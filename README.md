@@ -1,6 +1,6 @@
 # 🎮 Arcade Hub (MERN)
 
-A full-stack arcade game website built with **MongoDB**, **Express.js**, **React (Vite)**, and **Node.js** - a MERN-stack port of the original Next.js/Prisma project.
+A full-stack arcade game website built with **MongoDB**, **Express.js**, **React (Vite)**, and **Node.js** - a MERN-stack project.
 
 ## Features
 
@@ -12,20 +12,6 @@ A full-stack arcade game website built with **MongoDB**, **Express.js**, **React
 - **Leaderboard** — Top 10 per game, updated after every session
 - **MongoDB Database** — Via Mongoose ODM
 - **Retro Neon Design** — CRT scanlines, pixel fonts, neon glow effects
-
----
-
-## What changed from the Next.js version?
-
-| Original (Next.js) | MERN version |
-|---|---|
-| Next.js App Router (pages + API routes in one app) | Separate **Express** API (`/server`) + **React/Vite** SPA (`/client`) |
-| Prisma + SQLite | **Mongoose** + **MongoDB** |
-| NextAuth.js (Credentials) | Custom **JWT** auth (bcryptjs + jsonwebtoken), stored in `localStorage` |
-| Server components / `fetch` to internal API routes | **Axios** client hitting the Express REST API |
-| `next.config.js`, `tsconfig.json` | `vite.config.js` (with a dev proxy to the API) |
-
-The games, scoring rules, and visual design are unchanged - only the stack underneath them.
 
 ---
 
