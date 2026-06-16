@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #0a0014;
+  background-image: radial-gradient(circle at 50% 0%, rgba(169, 85, 255, 0.18), transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(0, 255, 247, 0.1), transparent 60%);
+  color: #f5f5ff;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  min-height: 100vh;
+}
+
+/* CRT scanline + vignette overlay */
+.crt {
+  position: relative;
+}
+
+.crt::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+.crt::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Neon text glows */
+.text-glow-pink {
+  text-shadow: 0 0 5px #ff2bd6, 0 0 15px #ff2bd6, 0 0 30px rgba(255, 43, 214, 0.5);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 5px #00fff7, 0 0 15px #00fff7, 0 0 30px rgba(0, 255, 247, 0.5);
+}
+.text-glow-green {
+  text-shadow: 0 0 5px #39ff14, 0 0 15px #39ff14, 0 0 30px rgba(57, 255, 20, 0.5);
+}
+.text-glow-yellow {
+  text-shadow: 0 0 5px #fff700, 0 0 15px #fff700, 0 0 30px rgba(255, 247, 0, 0.5);
+}
+
+/* Custom scrollbar to match the theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #140026;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff2bd6;
+  border-radius: 5px;
+}
+
+/* Visible keyboard focus ring for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #00fff7;
+  outline-offset: 2px;
+}
